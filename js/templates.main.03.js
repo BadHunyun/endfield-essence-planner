@@ -912,6 +912,15 @@
           </div>
         </div>
       </transition>
+
+      <transition name="fade-scale">
+        <div
+          v-if="showSyncModal && syncConflictConfirmMode"
+          class="about-overlay sync-overlay"
+          @pointerdown.self="beginOverlayPointerClose('sync-conflict-confirm', $event)"
+          @pointerup.self="finishOverlayPointerClose('sync-conflict-confirm', cancelSyncConflictConfirmation, $event)"
+          @pointercancel.self="cancelOverlayPointerClose('sync-conflict-confirm')"
+        >
           <div class="about-card notice-card sync-conflict-confirm-card">
             <h3>{{ t("sync.conflict_title") }}</h3>
             <div class="about-body">
