@@ -332,6 +332,18 @@
           {{ t("sync.download_background") }}
         </a>
       </section>
+      <a
+        class="hero-video-banner"
+        href="https://www.bilibili.com/video/BV1TJ9aBMEC2/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <span class="hero-video-badge">B站</span>
+        <span class="hero-video-text">终末地基质规划器答疑!以及未来一丢丢的规划</span>
+        <svg class="hero-video-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
       <div v-if="showAiNotice" class="ai-notice">
         <span class="ai-chip">{{ t("AI") }}</span>
         <span>{{ t("error.this_language_is_ai_translated_and_may_be_inaccurate_if_") }}</span>

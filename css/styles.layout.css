@@ -2402,6 +2402,66 @@
         flex: 0 0 auto;
       }
 
+      .hero-video-banner {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px auto 0;
+        padding: 8px 12px;
+        width: min(1180px, calc(100% - 24px));
+        border-radius: 12px;
+        border: 1px solid rgba(var(--color-accent-rgb), var(--alpha-30));
+        background: rgb(var(--color-surface-rgb));
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+      }
+
+      .hero-video-banner:hover {
+        border-color: rgba(var(--color-accent-rgb), var(--alpha-50));
+        background: rgba(var(--color-surface-rgb), 0.92);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      }
+
+      .hero-video-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        height: 24px;
+        padding: 0 8px;
+        border-radius: 999px;
+        background: rgba(var(--color-accent-rgb), var(--alpha-18));
+        color: rgba(var(--color-accent-rgb), var(--alpha-95));
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        flex: 0 0 auto;
+      }
+
+      .hero-video-text {
+        flex: 1;
+        font-size: 13px;
+        color: rgba(var(--color-white-rgb), 0.85);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .hero-video-arrow {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 auto;
+        color: rgba(var(--color-accent-rgb), var(--alpha-55));
+        transition: color 0.2s, transform 0.2s;
+      }
+
+      .hero-video-banner:hover .hero-video-arrow {
+        color: rgba(var(--color-accent-rgb), var(--alpha-95));
+        transform: translateX(2px);
+      }
+
       @media (max-width: 720px) {
         .site-feedback-label {
           font-size: 11px;
