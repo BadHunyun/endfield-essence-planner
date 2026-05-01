@@ -145,34 +145,6 @@ html[data-bg-display="off"][data-theme="light"] body::after {
   background: rgba(var(--color-white-rgb), var(--alpha-100));
 }
 
-[data-theme="light"] .hero-video-banner {
-  border-color: rgba(var(--color-accent-rgb), var(--alpha-30));
-  background: rgb(var(--color-surface-rgb));
-}
-
-[data-theme="light"] .hero-video-banner:hover {
-  border-color: rgba(var(--color-accent-rgb), var(--alpha-50));
-  background: rgba(var(--color-surface-rgb), 0.95);
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 12px;
-}
-
-[data-theme="light"] .hero-video-badge {
-  background: rgba(var(--color-accent-rgb), var(--alpha-18));
-  color: rgba(var(--color-accent-rgb), var(--alpha-95));
-}
-
-[data-theme="light"] .hero-video-text {
-  color: rgba(var(--color-black-rgb), 0.78);
-}
-
-[data-theme="light"] .hero-video-arrow {
-  color: rgba(var(--color-accent-rgb), var(--alpha-55));
-}
-
-[data-theme="light"] .hero-video-banner:hover .hero-video-arrow {
-  color: rgba(var(--color-accent-rgb), var(--alpha-95));
-}
-
 [data-theme="light"] .about-button.notice-button:hover {
   border-color: #e68a00;
   background: #fff4e6;
