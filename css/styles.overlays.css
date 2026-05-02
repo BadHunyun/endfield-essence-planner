@@ -2549,6 +2549,52 @@
         accent-color: var(--accent-2);
       }
 
+      .tutorial-card {
+        width: min(640px, 94vw);
+        max-height: calc(100vh - 16px);
+      }
+
+      .tutorial-video {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .tutorial-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .tutorial-intro {
+        margin: 0 0 12px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .tutorial-feature-list {
+        margin-bottom: 12px;
+      }
+
+      .tutorial-link-line {
+        margin: 0;
+        text-align: center;
+      }
+
+      .tutorial-encourage {
+        margin: 8px 0 0;
+        text-align: center;
+        color: var(--accent-2, #f4a7b9);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
       @media (max-width: 560px) {
         .notice-card {
           width: min(420px, 94vw);

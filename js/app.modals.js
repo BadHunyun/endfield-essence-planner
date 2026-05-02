@@ -66,6 +66,31 @@
       }
     };
 
+    const readTutorialSkipVersion = () => {
+      try {
+        return localStorage.getItem(state.tutorialSkipStorageKey) || "";
+      } catch (error) {
+        reportStorageIssue("storage.read", state.tutorialSkipStorageKey, error, {
+          scope: "modals.tutorial-skip-read",
+        });
+        return "";
+      }
+    };
+
+    const writeTutorialSkipVersion = (version) => {
+      try {
+        if (version) {
+          localStorage.setItem(state.tutorialSkipStorageKey, version);
+        } else {
+          localStorage.removeItem(state.tutorialSkipStorageKey);
+        }
+      } catch (error) {
+        reportStorageIssue("storage.write", state.tutorialSkipStorageKey, error, {
+          scope: "modals.tutorial-skip-write",
+        });
+      }
+    };
+
     const ensureModalContent = async (withSponsors = false) => {
       if (typeof state.ensureContentLoaded === "function") {
         await state.ensureContentLoaded({ withSponsors });
@@ -137,6 +162,23 @@
       }
     };
 
+    const openTutorial = () => {
+      if (state.locale && state.locale.value !== "zh-CN") return;
+      state.showTutorialModal.value = true;
+      state.skipTutorial.value = readTutorialSkipVersion() === state.tutorialVersion;
+    };
+
+    const closeTutorial = () => {
+      state.showTutorialModal.value = false;
+      if (state.skipTutorial.value) {
+        writeTutorialSkipVersion(state.tutorialVersion);
+      } else {
+        if (readTutorialSkipVersion() === state.tutorialVersion) {
+          writeTutorialSkipVersion("");
+        }
+      }
+    };
+
     let scrollLockActive = false;
     let scrollLockY = 0;
     let staleLockCheckRaf = null;
@@ -194,6 +236,7 @@
     const hasActiveModal = () =>
       Boolean(
         isModalFlagActive(state.showNotice) ||
+          isModalFlagActive(state.showTutorialModal) ||
           isModalFlagActive(state.showChangelog) ||
           isModalFlagActive(state.showAbout) ||
           isModalFlagActive(state.showFaq) ||
@@ -301,6 +344,15 @@
       };
       remindNewNotice();
 
+      const remindTutorial = () => {
+        if (state.locale && state.locale.value !== "zh-CN") return;
+        const skippedVersion = readTutorialSkipVersion();
+        if (skippedVersion === state.tutorialVersion) return;
+        state.skipTutorial.value = false;
+        state.showTutorialModal.value = true;
+      };
+      remindTutorial();
+
       window.addEventListener("pageshow", handleLifecycleRecovery);
       window.addEventListener("focus", handleLifecycleRecovery);
       document.addEventListener("visibilitychange", handleLifecycleRecovery);
@@ -310,6 +362,7 @@
     watch(
       [
         state.showNotice,
+        state.showTutorialModal,
         state.showChangelog,
         state.showAbout,
         state.showFaq,
@@ -324,6 +377,7 @@
       ],
       ([
         noticeOpen,
+        tutorialOpen,
         changelogOpen,
         aboutOpen,
         faqOpen,
@@ -376,5 +430,7 @@
     state.closeCnSyncUnavailableModal = closeCnSyncUnavailableModal;
     state.closeSyncModal = closeSyncModal;
     state.closeNotice = closeNotice;
+    state.openTutorial = openTutorial;
+    state.closeTutorial = closeTutorial;
   };
 })();

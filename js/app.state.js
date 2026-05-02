@@ -97,6 +97,9 @@
     state.rerunRankingNavHintVersion = "1";
     state.weaponOwnershipHintStorageKey = "planner-weapon-ownership-hint:v1";
     state.weaponOwnershipHintVersion = "1";
+    state.tutorialSkipStorageKey = "planner-tutorial-skip:v1";
+    // 更新教程版本号可让弹窗对所有用户重新显示一次。
+    state.tutorialVersion = "1";
 
     // 清除数据 — 勾选分组定义（checked 状态独立存储，避免 Vue template setter 破坏 Ref）
     state.clearDataChecked = ref({});
@@ -122,7 +125,7 @@
       {
         id: "hints",
         label: "storage.clear_group_hints",
-        keys: ["attrHintStorageKey", "noticeSkipKey", "planConfigHintStorageKey",
+        keys: ["attrHintStorageKey", "noticeSkipKey", "tutorialSkipStorageKey", "planConfigHintStorageKey",
                "planConfigOwnershipHintStorageKey", "equipRefiningNavHintStorageKey",
                "rerunRankingNavHintStorageKey", "weaponOwnershipHintStorageKey"],
         legacyPrefix: "legacyNoticePrefix",
@@ -299,8 +302,10 @@
     state.backgroundUiHidden = ref(false);
 
     state.showNotice = ref(false);
+    state.showTutorialModal = ref(false);
     state.showChangelog = ref(false);
     state.skipNotice = ref(false);
+    state.skipTutorial = ref(false);
     state.toastNotices = ref([]);
     state.toastNotice = ref(null);
     state.pauseToastNotice = () => {};

@@ -1340,6 +1340,59 @@
       </transition>
 
       <transition name="fade-scale">
+        <div
+          v-if="showTutorialModal"
+          class="about-overlay notice-overlay"
+          @pointerdown.self="beginOverlayPointerClose('tutorial-modal', $event)"
+          @pointerup.self="finishOverlayPointerClose('tutorial-modal', closeTutorial, $event)"
+          @pointercancel.self="cancelOverlayPointerClose('tutorial-modal')"
+        >
+          <div class="about-card notice-card tutorial-card">
+            <h3>必看！终末地基质规划器功能全解析！轻松设置网页功能</h3>
+            <div class="notice-body tutorial-body">
+              <div class="tutorial-video">
+                <iframe
+                  src="//player.bilibili.com/player.html?bvid=BV1YtRjB6EfR&page=1&high_quality=1&autoplay=0"
+                  scrolling="no"
+                  border="0"
+                  frameborder="no"
+                  framespacing="0"
+                  allowfullscreen="true"
+                  class="tutorial-iframe"
+                ></iframe>
+              </div>
+              <p class="tutorial-intro">本视频将详细介绍规划器的各项功能，帮助你快速上手：</p>
+              <ul class="notice-list tutorial-feature-list">
+                <li>如何设置基质规划</li>
+                <li>如何选中/取消选中基础属性，精准匹配需要的词条</li>
+                <li>自定义武器属性功能</li>
+                <li>编辑武器/基质拥有状态与备注功能</li>
+                <li>地区优先级与武器优先级的设置与排序策略</li>
+              </ul>
+              <p class="tutorial-link-line">
+                <a
+                  class="notice-link"
+                  href="https://www.bilibili.com/video/BV1YtRjB6EfR/"
+                  target="_blank"
+                  rel="noreferrer"
+                >在 Bilibili 观看完整教程视频</a>
+              </p>
+            </div>
+            <div class="notice-footer">
+              <label class="notice-skip">
+                <input type="checkbox" v-model="skipTutorial" />
+                不再提醒
+              </label>
+              <div class="about-actions">
+                <button class="ghost-button" @click="closeTutorial">关闭</button>
+              </div>
+              <p class="tutorial-encourage">真的十分推荐你去看一下呢~</p>
+            </div>
+          </div>
+        </div>
+      </transition>
+
+      <transition name="fade-scale">
         <div v-if="showAdblockNotice" class="about-overlay notice-overlay">
           <div class="about-card notice-card adblock-notice-card">
             <div class="adblock-notice-hero">
