@@ -166,7 +166,7 @@ window.I18N["en"] = {
       "武陵·清波寨": "Wuling - Qingbo Stockade",
       "武陵·首墩": "Wuling - Marker Stone"
     },
-    "weapon": { // Todo: Reorgranize it
+    "weapon": { // Todo: Reorganize it
       "不知归": "Never Rest",
       "热熔切割器": "Thermite Cutter",
       "使命必达": "Delivery Guaranteed",
@@ -264,7 +264,7 @@ window.I18N["en"] = {
       "艾尔黛拉专武": "Ardelia Signature", // Dreams of the Starry Beach
       "余烬专武": "Ember Signature", // Thunderberge
       "莱万汀专武": "Laevatain Signature", // Forgeborn Scathe
-      // Campatible
+      // Compatible
       "艾维文娜适配": "Avywenna Compatible", // Cohesive Traction
       // General
       "泛用最强拐": "Best General Support",
